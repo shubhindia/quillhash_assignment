@@ -50,8 +50,8 @@ class KeepAlive(Resource):
 class GetUsers(Resource):
     ### Global DB config
     client = MongoClient("mongodb+srv://test:test@cluster0-y6x8b.mongodb.net/test?retryWrites=true&w=majority")
-    db = client.get_database("user_db")
-    record = db.users
+    db = client.get_database("nts_db")
+    record = db.nts
 
     def get(self):
         data = self.record.find()
