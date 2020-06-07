@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ntsuserservice
+  namespace: nts
+  labels:
+    name: ntsuserservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ntsuserservice
+  template:
+    metadata:
+     labels:
+       app: ntsuserservice
+    spec:
+      containers:
+      - name: ntsuserservice
+        image: shubhindia/ntsuserservice
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
