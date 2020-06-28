@@ -53,10 +53,7 @@ def Deployment()
 {
     stage('Deployment')
     {
-			node("shubhindia"){
-            
-	   	    sh "cd /home/nts/deployments;python3 deployment.py shubhindia quillhashassignment quillhash " 
-       }
+	   	    sh "cd /home/nts/deployments;python3 deployment.py shubhindia quillhashassignment quillhash" 
     }
 } 
 
