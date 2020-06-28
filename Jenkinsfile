@@ -53,15 +53,8 @@ def Deployment()
 {
     stage('Deployment')
     {
-	   	    sh "cd /home/nts/deployments;python3 deployment.py shubhindia quillhashassignment quillhash" 
+	   	    sh "cd /home/nts/deployments;python3 deployment.py shubhindia quillhashassignment quillhash"
+	            sh "ansible-playbook playbook-quillhashassignment.yml"
     }
 } 
 
-
-def quote() 
-{
-    stage('quote') 
-    {
-        echo 'Please check the jenkins pipeline.'
-    }
-}
