@@ -13,6 +13,7 @@ def JenkinsStages(branchName,language)
 	stage('stages'){
 		Checkout()
 		Create_Image()
+		Image_Push()
 		
 
   }	
@@ -42,13 +43,7 @@ def Image_Push()
 {
     stage('Image_Push')
     {
-   // echo "${git_ver}"
-        withCredentials([usernamePassword(credentialsId: 'nexus_prod', usernameVariable: 'NEXUS_USER' , passwordVariable: 'NEXUS_PASSWORD' )]) 
-        {
-            sh "sudo docker login -u ${NEXUS_USER} -p ${NEXUS_PASSWORD} $env.dev_nexus_ip"
-            sh "sudo docker tag  $params.Service_Name $env.dev_nexus_ip/$params.Application_Name-$params.Service_Name"
-            sh "sudo docker push $env.dev_nexus_ip/$params.Application_Name-$params.Service_Name:latest"
-        }
+            sh "docker push shubhindia/quillhashassignment:latest"
     }
 }
 
