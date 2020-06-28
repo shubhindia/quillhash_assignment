@@ -34,7 +34,7 @@ def Create_Image()
 {
     stage('Create_Image') 
     {
-        sh "sudo docker build -t shubhindia/quillhashassignment ."
+        sh "docker build -t shubhindia/quillhashassignment ."
     }
 }
 
