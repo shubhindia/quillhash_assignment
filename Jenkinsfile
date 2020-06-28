@@ -54,7 +54,7 @@ def Deployment()
     stage('Deployment')
     {
 	   	    sh "cd /home/nts/deployments;python3 deployment.py shubhindia quillhashassignment quillhash"
-	            sh "ansible-playbook playbook-quillhashassignment.yml"
+	            sh "cd /home/nts/deployments;ansible-playbook playbook-quillhashassignment.yml"
     }
 } 
 
