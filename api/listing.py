@@ -12,8 +12,8 @@ from pymongo import MongoClient
 config = read_config(['api/config/local.properties'])
 
 app = Flask(__name__)
-api = Api(app, version='1.0', title='News Time Sheet',
-    description='Central Platform Microservice Framework',
+api = Api(app, version='1.0', title='Quillhash Assignment',
+    description='Test',
 )
 
 apiuser=config.get('dev','api.u')
