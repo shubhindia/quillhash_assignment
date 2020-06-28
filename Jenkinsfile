@@ -14,6 +14,7 @@ def JenkinsStages(branchName,language)
 		Checkout()
 		Create_Image()
 		Image_Push()
+		Deployment()
 		
 
   }	
@@ -54,10 +55,7 @@ def Deployment()
     {
 			node("shubhindia"){
             
-	   	    sh "cd /opt;./deployment.py ${params.Service_Name} ${params.Application_Name} $env.Environment_Name $env.dev_nexus_ip $BUILD_NUMBER ${params.Language} " 
-			sh "cd /opt;sudo ansible-playbook ${params.Application_Name}-${params.Service_Name}.yml --extra-vars 'variable_host=$env.Environment_Name variable_serv=${params.Service_Name} variable_app=${params.Application_Name}'"
-			
-
+	   	    sh "cd /home/nts/deployments;python3 deployment.py shubhindia quillhashassignment quillhash " 
        }
     }
 } 
